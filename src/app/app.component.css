@@ -1,0 +1,24 @@
+.colorBotton{
+    background: var(--focus-ring)
+}
+html,body{
+    margin: 10px;
+    background-color: white;
+    text-emphasis-color: var(--primary-color-text);
+    font-family: var(--font-family);
+    
+    
+}
+
+.p-component {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.centrado{text-align: center;}
+.inicio{text-align: start;}
+.final{text-align: end;}
+.colorBackground{
+    background-color: var(--primary-color);
+}

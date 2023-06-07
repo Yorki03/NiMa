@@ -1,0 +1,26 @@
+<mat-sidenav #sidenav mode="push">
+    <mat-toolbar>
+        <h3>Botones</h3>                        
+        <button mat-icon-button
+                (click)="sidenav.toggle()">    
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+        <div data-bs-spy="scroll" 
+            data-bs-root-margin="0px 0px -40%" 
+            data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" 
+            tabindex="0" *ngFor="let boton of botones">
+            <img src="../../../assets/recursos/boton/{{boton.imagen}}.JPG" alt="boton" 
+                width="100px" height="140px" (click)="guardarBoton(boton.id)" > 
+        </div>
+        
+    </mat-nav-list>
+</mat-sidenav>
+    
+<button mat-raised-button
+        color="primary"
+        (click)="sidenav.toggle()" style="margin-bottom: 5px"> 
+    Botones  <mat-icon>arrow_forward_los</mat-icon>
+</button> 

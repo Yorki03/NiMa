@@ -1,0 +1,25 @@
+<mat-sidenav #sidenav mode="push">
+    <mat-toolbar>
+        <h3>Telas</h3>                        
+        <button mat-icon-button
+                (click)="sidenav.toggle()">    
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-toolbar>
+    
+    <mat-nav-list>
+        <div data-bs-spy="scroll" 
+            data-bs-root-margin="0px 0px -40%" 
+            data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" 
+            tabindex="0" *ngFor="let tela of telas">
+            <img src="../../../../assets/recursos/telas/{{tela.imagen}}.jpg" alt="tela" width="100px" 
+                height="150px" (click)="guardarTela(tela.id)" > 
+        </div>
+    </mat-nav-list>    
+</mat-sidenav>
+            
+<button mat-raised-button
+        color="primary"
+        (click)="sidenav.toggle()" style="margin-bottom: 5px"> 
+    Telas <mat-icon>arrow_forward_los</mat-icon>
+</button> 

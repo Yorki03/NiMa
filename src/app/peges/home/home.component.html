@@ -1,0 +1,62 @@
+<mat-sidenav-container fullscreen >
+       
+    <mat-sidenav #sidenav mode="push">
+        
+        <mat-toolbar color="primary">
+            <span>Menu</span>
+
+            <span class="speicer"></span> 
+             
+            <button mat-icon-button
+                    (click)="sidenav.toggle()">  
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <button mat-button routerLink="./confeccion">
+                <mat-icon>design_services</mat-icon>
+                Confecciona Ahora
+            </button>
+            <br>
+            <button mat-button routerLink="./ayuda">
+                <mat-icon>question_mark</mat-icon>
+                Ayuda
+            </button>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button mat-icon-button 
+                style="margin-bottom: 5px"
+                routerLink="/">
+            <mat-icon>home</mat-icon>
+        </button>        
+        <button mat-icon-button 
+                (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <button mat-button
+            (click)="sidenav.toggle()" style="margin-bottom: 5px"> 
+            Confecciona Ahora
+        </button>
+        <br>
+        <button mat-button
+            (click)="sidenav.toggle()" style="margin-bottom: 5px"> 
+            Ayuda
+        </button>
+
+        <span class="speicer"></span>
+
+        <button mat-button style="margin-bottom: 5px" routerLink = "./auth/login"> 
+            Iniciar Seccion
+        </button>
+
+    </mat-toolbar>
+    
+
+    <div class="conteiner">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>
