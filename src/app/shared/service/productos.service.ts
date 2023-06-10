@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cuello, Manga, Cuerpo, Telas, Botones } from '../peges/interfaces/interface.interface';
+import { Cuello, Manga, Cuerpo, Telas, Botones } from '../../peges/confeccion/interfaces/interface.interface';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductosService {
-  
+
 
   constructor(private http: HttpClient) { }
 

@@ -2,35 +2,30 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 //Module
-import { PrimengModule } from '../primeng/primeng.module';
+import { PrimengModule } from '../shared/primeng/primeng.module';
 import { PegesRoutingModule } from './peges-routing.module';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../shared/material/material.module';
 
 //Component
 import { AyudaComponent } from './ayuda/ayuda.component';
-import { BarmenuComponent } from './share/barmenu/barmenu.component';
 import { CarritoComponent } from './carrito/carrito.component';
-import { ContadorComponent } from './components/contador/contador.component';
+import { ContadorComponent } from '../shared/components/contador/contador.component';
 import { ConfeccionComponent } from './confeccion/confeccion.component';
-import { CuelloComponent } from './components/cuello/cuello.component';
-import { CuerpoComponent } from './components/cuerpo/cuerpo.component';
-import { FoolderComponent } from './components/foolder/foolder.component';
+import { CuelloComponent } from './confeccion/components/cuello/cuello.component';
+import { CuerpoComponent } from './confeccion/components/cuerpo/cuerpo.component';
+import { FoolderComponent } from '../shared/components/foolder/foolder.component';
 import { HomeComponent } from './home/home.component';
 import { HomeConfeccionComponent } from './home-confeccion/home-confeccion.component';
-import { MangaComponent } from './components/manga/manga.component';
+import { MangaComponent } from './confeccion/components/manga/manga.component';
 import { MostrarComponent } from './mostrar/mostrar.component';
-import { TelasComponent } from './components/telas/telas.component';
-import { BotonComponent } from './components/boton/boton.component';
-
-
-
+import { TelasComponent } from './confeccion/components/telas/telas.component';
+import { BotonComponent } from './confeccion/components/boton/boton.component';
 
 
 @NgModule({
   declarations: [
     MostrarComponent,
     HomeComponent,
-    BarmenuComponent,
     ConfeccionComponent,
     HomeConfeccionComponent,
     AyudaComponent,
@@ -42,20 +37,16 @@ import { BotonComponent } from './components/boton/boton.component';
     ContadorComponent,
     CarritoComponent,
     BotonComponent
-    
   ],
-
   imports: [
     CommonModule,
     PrimengModule,
     MaterialModule,
-    PegesRoutingModule   
+    PegesRoutingModule
   ],
-
   exports: [
     MostrarComponent,
     HomeComponent,
-    BarmenuComponent,
     ConfeccionComponent,
     HomeConfeccionComponent,
     AyudaComponent,
@@ -68,4 +59,4 @@ import { BotonComponent } from './components/boton/boton.component';
     CarritoComponent
   ]
 })
-export class PegesModule{}
+export class PegesModule { }

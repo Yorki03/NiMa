@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../service/auth.service';
-import { AuthUser } from '../../peges/interfaces/interface.interface';
+import { AuthService } from '../../shared/service/auth.service';
+import { AuthUser } from '../../peges/confeccion/interfaces/interface.interface';
 
 import Swal from 'sweetalert2';
 
@@ -17,17 +17,17 @@ export class LoginComponent {
     password: ['12345678', [Validators.required, Validators.minLength(8)]]
   });
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService){}
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
-  login(){
-    
-    const {email, password} = this.miFormulario.value;
-        
-    this.authService.login(email, password).subscribe((resp:any)=>{
+  login() {
+
+    const { email, password } = this.miFormulario.value;
+
+    this.authService.login(email, password).subscribe((resp: any) => {
       console.log(resp);
-      if(resp === true){
+      if (resp === true) {
         this.router.navigateByUrl('/peges');
-      }else{
+      } else {
         Swal.fire('Error', resp, 'error');
       }
     });

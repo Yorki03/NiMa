@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { MostrarComponent } from './peges/mostrar/mostrar.component';
-import { Error404Component } from './error404/error404.component';
+import { Error404Component } from './shared/components/error404/error404.component';
 
 
 
@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'peges',
     loadChildren: () => import('./peges/peges.module').then(m => m.PegesModule),
-    
+
   },
   {
     path: '404',
@@ -44,4 +44,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
