@@ -8,12 +8,11 @@
 
   <mat-nav-list>
     <div data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
-      class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0" *ngFor="let cuello of cuellos">
-      <img src="../../../assets/recursos/cuello/{{cuello.imagen}}.JPG" alt="cuello" width="100px" height="140px"
-        (click)="guardarCuello(cuello.id)">
+      class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0" *ngFor="let cuello of variables!.cuellos">
+      <img [src]="cuello.url" alt="cuello" width="100px" height="140px" (click)="guardarCuello(cuello)">
     </div>
-
   </mat-nav-list>
+
 </mat-sidenav>
 
 <button mat-raised-button color="primary" (click)="sidenav.toggle()" style="margin-bottom: 5px">

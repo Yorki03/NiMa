@@ -6,17 +6,6 @@ export interface Usiario {
   img?: string;
 }
 
-export interface Productos {
-  id: string;
-  imagen: string;
-
-}
-
-export interface Cuello {
-  id: number;
-  imagen: string;
-}
-
 export interface Cuerpo {
   id: number;
   imagen: string;

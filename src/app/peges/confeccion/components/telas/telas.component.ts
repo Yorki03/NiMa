@@ -18,12 +18,6 @@ export class TelasComponent implements OnInit {
   }
 
   guardarTela(id: number): void {
-    console.log(id);
-    this.numberValue = id;
-    const stringValue = this.numberValue.toString();
-    console.log(stringValue);
-    this.localService.setIdTela(stringValue);
-
   }
 
 }

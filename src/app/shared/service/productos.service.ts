@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cuello, Manga, Cuerpo, Telas, Botones } from '../../peges/confeccion/interfaces/interface.interface';
+import { Manga, Cuerpo, Telas, Botones } from '../../peges/confeccion/interfaces/interface.interface';
+import { Cuello } from 'src/app/peges/confeccion/models/cuello';
+import { catchError, map } from 'rxjs';
+import { handleError } from '../functions/http-error';
 
 
 @Injectable({
@@ -8,11 +11,13 @@ import { Cuello, Manga, Cuerpo, Telas, Botones } from '../../peges/confeccion/in
 })
 export class ProductosService {
 
-
   constructor(private http: HttpClient) { }
 
   getCuello() {
-    return this.http.get<Cuello[]>('http://localhost:3000/cuello');
+    return this.http.get<Cuello[]>(`http://localhost:3000/cuello`).pipe(
+      map((res) => res.map((cuello) => new Cuello(cuello))),
+      catchError(handleError)
+    );
   };
 
   getManga() {

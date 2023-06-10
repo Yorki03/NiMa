@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Cuello } from '../../interfaces/interface.interface';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from '../../../../shared/service/productos.service';
 import { LocalService } from '../../../../shared/service/local.service';
+import { Variables } from '../../utils/variables';
+import { FunctionGetCuellos } from '../../functions/get-cuellos';
+import { Cuello } from '../../models/cuello';
 
 @Component({
   selector: 'app-cuello',
@@ -10,20 +12,22 @@ import { LocalService } from '../../../../shared/service/local.service';
 
 export class CuelloComponent implements OnInit {
 
-  cuellos: Cuello[] = [];
+  @Input() variables?: Variables;
 
-
-  constructor(private productosService: ProductosService,
-    private localService: LocalService) { }
+  constructor(
+    private productosService: ProductosService
+  ) { }
 
   ngOnInit(): void {
-    this.productosService.getCuello().subscribe((cars: any) => (this.cuellos = cars));
+    FunctionGetCuellos.getAll(
+      this.productosService,
+      this.variables
+    );
   }
 
-  guardarCuello(id: number) {
-    let stringValue = id.toString();
-    console.log(stringValue);
-    this.localService.setIdCuello(stringValue);
+  guardarCuello(cuello: Cuello) {
+    console.log(cuello);
+
   }
 
 }

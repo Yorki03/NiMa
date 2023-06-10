@@ -1,44 +1,42 @@
+<div class="row margen">
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 160px;">
 
-<div class="row margen" >
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 160px;">
-        
-        <ul class="nav nav-pills flex-column mb-auto">
-            <li>
-                <app-cuello></app-cuello>
-            </li>
-            <hr>
-            
-            <li> 
-                <app-cuerpo></app-cuerpo>
-            </li>
-            <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li>
+        <app-cuello [variables]="variables"></app-cuello>
+      </li>
+      <hr>
 
-            <li>
-                <app-manga></app-manga>
-            </li>
-            <hr>
+      <li>
+        <app-cuerpo></app-cuerpo>
+      </li>
+      <hr>
 
-            <li>
-                <app-telas></app-telas>
-            </li>
-            <hr>
+      <li>
+        <app-manga></app-manga>
+      </li>
+      <hr>
 
-            <li>
-                <app-boton></app-boton>
-            </li>
-        </ul>    
+      <li>
+        <app-telas></app-telas>
+      </li>
+      <hr>
+
+      <li>
+        <app-boton></app-boton>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-2 d-flex flex-column"></div>
+  <div class="col-3 d-flex flex-column">
+    <div class="card" style="width: 300px;" *ngFor="let producto of variables.productos">
+      <img [src]="producto.url" class="card-img-top" alt="confeccion">
     </div>
+  </div>
 
-    <div class="col-2 d-flex flex-column"></div>
-    <div class="col-3 d-flex flex-column"  >
-        <div class="card" style="width: 300px;" *ngFor="let producto of productos">
-            <img src="../../../assets/productos/{{producto.imagen}}.jpg" class="card-img-top" alt="confeccion">
-        </div>
-    </div>
-
-    
 </div>
 
 <div class="bg-light text-dark">
-    <app-foolder></app-foolder>
+  <app-foolder></app-foolder>
 </div>
