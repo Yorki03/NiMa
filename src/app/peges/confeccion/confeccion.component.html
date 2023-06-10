@@ -5,6 +5,9 @@
       <li>
         <app-cuello [variables]="variables"></app-cuello>
       </li>
+      <div *ngIf="variables.cuelloSelected">
+        <img [src]="variables.cuelloSelected.url" alt="cuello" width="100px" height="140px">
+      </div>
       <hr>
 
       <li>

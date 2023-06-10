@@ -10,7 +10,8 @@
     <div data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
       class="scrollspy-example bg-body-tertiary p-3 rounded-2" style="cursor: pointer;" tabindex="0"
       *ngFor="let cuello of variables!.cuellos">
-      <img [src]="cuello.url" alt="cuello" width="100px" height="140px" (click)="guardarCuello(cuello)">
+      <img [src]="cuello.url" alt="cuello" width="100px" height="140px"
+        (click)="guardarCuello(cuello); sidenav.toggle()">
     </div>
   </mat-nav-list>
 

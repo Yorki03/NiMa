@@ -16,4 +16,6 @@ export class Variables {
   cuerpos: Cuerpo[] = [];
   telas: Tela[] = [];
   botones: Boton[] = [];
+
+  cuelloSelected?: Cuello;
 }
