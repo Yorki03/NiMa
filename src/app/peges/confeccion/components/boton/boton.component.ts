@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Botones } from '../../interfaces/interface.interface';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from '../../../../shared/service/productos.service';
 import { LocalService } from '../../../../shared/service/local.service';
+import { Variables } from '../../utils/variables';
+import { Boton } from '../../models/boton';
+import { FunctionGetBotones } from '../../functions/get-botones';
 
 @Component({
   selector: 'app-boton',
@@ -9,17 +11,18 @@ import { LocalService } from '../../../../shared/service/local.service';
 })
 export class BotonComponent implements OnInit {
 
-  private numberValue!: number;
-  botones: Botones[] = [];
+  @Input() variables?: Variables;
 
-  constructor(private productosService: ProductosService,
-    private localService: LocalService) { }
+  constructor(private productosService: ProductosService) { }
 
   ngOnInit(): void {
-    this.productosService.getBotones().subscribe((cars: any) => (this.botones = cars));
+    FunctionGetBotones.getAll(
+      this.productosService,
+      this.variables
+    );
   }
 
-  guardarBoton(id: number) {
-    console.log(id);
+  guardarBoton(boton: Boton) {
+    this.variables?.formSeleccion.get('id_boton')?.setValue(boton.id_boton);
   }
 }

@@ -27,7 +27,7 @@ export class CuelloComponent implements OnInit {
 
   guardarCuello(cuello: Cuello) {
     console.log(cuello);
-
+    this.variables?.formSeleccion.get('id_cuello')?.setValue(cuello.id_cuello);
   }
 
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Manga } from '../../interfaces/interface.interface';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from '../../../../shared/service/productos.service';
+import { Variables } from '../../utils/variables';
+import { Manga } from '../../models/manga';
+import { FunctionGetMangas } from '../../functions/get-mangas';
 
 @Component({
   selector: 'app-manga',
@@ -9,16 +11,18 @@ import { ProductosService } from '../../../../shared/service/productos.service';
 })
 export class MangaComponent implements OnInit {
 
-  mangas: Manga[] = [];
+  @Input() variables?: Variables;
 
   constructor(private productosService: ProductosService) { }
 
   ngOnInit(): void {
-    this.productosService.getManga().subscribe((cars: any) => (this.mangas = cars));
+    FunctionGetMangas.getAll(
+      this.productosService,
+      this.variables
+    );
   }
 
-  guardarManga(id: number) {
-
-    console.log(id);
+  guardarManga(manga: Manga) {
+    this.variables?.formSeleccion.get('id_manga')?.setValue(manga.id_manga);
   }
 }

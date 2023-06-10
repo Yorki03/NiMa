@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Cuerpo } from '../../interfaces/interface.interface';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from '../../../../shared/service/productos.service';
+import { Variables } from '../../utils/variables';
+import { Cuerpo } from '../../models/cuerpo';
+import { FunctionGetCuerpos } from '../../functions/get-cuerpos';
 
 @Component({
   selector: 'app-cuerpo',
@@ -8,15 +10,18 @@ import { ProductosService } from '../../../../shared/service/productos.service';
 })
 export class CuerpoComponent implements OnInit {
 
-  cuerpos: Cuerpo[] = [];
+  @Input() variables?: Variables;
 
   constructor(private productosService: ProductosService) { }
 
   ngOnInit(): void {
-    this.productosService.getCuerpo().subscribe((cars: any) => (this.cuerpos = cars));
+    FunctionGetCuerpos.getAll(
+      this.productosService,
+      this.variables
+    );
   }
 
-  guardarCuerpo(id: number) {
-    console.log(id);
+  guardarCuerpo(cuerpo: Cuerpo) {
+    this.variables?.formSeleccion.get('id_cuerpo')?.setValue(cuerpo.id_cuerpo);
   }
 }

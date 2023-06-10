@@ -1,23 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Telas } from '../../interfaces/interface.interface';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from '../../../../shared/service/productos.service';
-import { LocalService } from '../../../../shared/service/local.service';
+import { Variables } from '../../utils/variables';
+import { Tela } from '../../models/tela';
+import { FunctionGetTelas } from '../../functions/get-telas';
 
 @Component({
   selector: 'app-telas',
   templateUrl: './telas.component.html'
 })
 export class TelasComponent implements OnInit {
-  private numberValue!: number;
-  telas: Telas[] = [];
 
-  constructor(private productoService: ProductosService, private localService: LocalService) { }
+  @Input() variables?: Variables;
+
+  constructor(private productoService: ProductosService) { }
 
   ngOnInit(): void {
-    this.productoService.getTelas().subscribe((cars: any) => (this.telas = cars));
+    FunctionGetTelas.getAll(
+      this.productoService,
+      this.variables
+    );
   }
 
-  guardarTela(id: number): void {
+  guardarTela(tela: Tela): void {
+    this.variables?.formSeleccion.get('id_tela')?.setValue(tela.id_tela);
   }
-
 }

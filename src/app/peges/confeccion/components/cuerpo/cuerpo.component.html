@@ -1,26 +1,21 @@
 <mat-sidenav #sidenav mode="push">
-        <mat-toolbar>
-            <h3>Cuerpos</h3>                        
-            <button mat-icon-button
-                    (click)="sidenav.toggle()">    
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-toolbar>
-    
-        <mat-nav-list>
-            <div data-bs-spy="scroll" 
-                data-bs-root-margin="0px 0px -40%" 
-                data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" 
-                tabindex="0" *ngFor="let cuerpo of cuerpos">
-                <img src="../../../assets/recursos/cuerpo/{{cuerpo.imagen}}.JPG" alt="cuerpo" 
-                    width="100px" height="140px" (click)="guardarCuerpo(cuerpo.id)"> 
-            </div>
-            
-        </mat-nav-list>
+  <mat-toolbar>
+    <h3>Cuerpos</h3>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-nav-list>
+    <div data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
+      class="scrollspy-example bg-body-tertiary p-3 rounded-2" style="cursor: pointer;" tabindex="0"
+      *ngFor="let cuerpo of variables!.cuerpos">
+      <img [src]="cuerpo.url" alt="cuerpo" width="100px" height="140px" (click)="guardarCuerpo(cuerpo)">
+    </div>
+
+  </mat-nav-list>
 </mat-sidenav>
-        
-<button mat-raised-button
-        color="primary"
-        (click)="sidenav.toggle()" style="margin-bottom: 5px"> 
-    Cuerpos <mat-icon>arrow_forward_los</mat-icon>
-</button> 
+
+<button mat-raised-button color="primary" (click)="sidenav.toggle()" style="margin-bottom: 5px">
+  Cuerpos <mat-icon>arrow_forward_los</mat-icon>
+</button>
