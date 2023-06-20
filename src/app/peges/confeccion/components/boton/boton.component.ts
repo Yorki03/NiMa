@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from '../../../../shared/service/productos.service';
-import { LocalService } from '../../../../shared/service/local.service';
 import { Variables } from '../../utils/variables';
 import { Boton } from '../../models/boton';
 import { FunctionGetBotones } from '../../functions/get-botones';
@@ -23,6 +22,7 @@ export class BotonComponent implements OnInit {
   }
 
   guardarBoton(boton: Boton) {
+    this.variables!.botonSelected = boton;
     this.variables?.formSeleccion.get('id_boton')?.setValue(boton.id_boton);
   }
 }

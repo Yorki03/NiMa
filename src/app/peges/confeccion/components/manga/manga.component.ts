@@ -23,6 +23,7 @@ export class MangaComponent implements OnInit {
   }
 
   guardarManga(manga: Manga) {
+    this.variables!.mangaSelected = manga;
     this.variables?.formSeleccion.get('id_manga')?.setValue(manga.id_manga);
   }
 }

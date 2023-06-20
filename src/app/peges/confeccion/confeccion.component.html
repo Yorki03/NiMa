@@ -5,9 +5,6 @@
       <li>
         <app-cuello [variables]="variables"></app-cuello>
       </li>
-      <div *ngIf="variables.cuelloSelected">
-        <img [src]="variables.cuelloSelected.url" alt="cuello" width="100px" height="140px">
-      </div>
       <hr>
 
       <li>
@@ -28,17 +25,57 @@
       <li>
         <app-boton [variables]="variables"></app-boton>
       </li>
+      <hr>
     </ul>
   </div>
 
   <div class="col-2 d-flex flex-column"></div>
+
   <div class="col-3 d-flex flex-column">
-    <div class="card" style="width: 300px;" *ngFor="let producto of variables.productos">
+    <div class="card" style="width: 250px;" *ngFor="let producto of variables.productos">
       <img [src]="producto.url" class="card-img-top" alt="confeccion">
     </div>
   </div>
 
+  <div class="col-1 d-flex flex-column"></div>
+
+  <div class="col-2 d-flex flex-column">
+    <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
+
+      <img [src]="variables.botonSelected.url" class="card-img-top" alt="botonSelected"  height="150px">
+      <div class="card-body">
+        <a href="./peges/envio" class="btn btn-primary">Go somewhere</a>
+      </div>
+
+    </div>
+  </div>
 </div>
+
+<div class="container text-center bg-light">
+  <div class="row align-items-center">
+    <div class="col" *ngIf="variables.cuelloSelected">
+      <img [src]="variables.cuelloSelected.url" alt="cuello" width="100px" height="140px">
+    </div>
+
+    <div class="col" *ngIf="variables.cuerpoSelected">
+      <img [src]="variables.cuerpoSelected.url" alt="cuerpo" width="100px" height="140px">
+    </div>
+
+    <div class="col" *ngIf="variables.mangaSelected">
+      <img [src]="variables.mangaSelected.url" alt="manga" width="100px" height="140px">
+    </div>
+
+    <div class="col" *ngIf="variables.telaSelected">
+      <img [src]="variables.telaSelected.url" alt="tela" width="100px" height="140px">
+    </div>
+
+    <div class="col" *ngIf="variables.botonSelected">
+      <img [src]="variables.botonSelected.url" alt="boton" width="100px" height="140px">
+    </div>
+  </div>
+</div>
+
+<br>
 
 <div class="bg-light text-dark">
   <app-foolder></app-foolder>

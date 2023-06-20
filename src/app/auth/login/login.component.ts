@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/service/auth.service';
-import { AuthUser } from '../../peges/confeccion/interfaces/interface.interface';
+import { AuthUser } from '../../peges/confeccion/peges/envio/interfaces/pedido';
 
 import Swal from 'sweetalert2';
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 //Module
 import { PrimengModule } from '../shared/primeng/primeng.module';
@@ -8,7 +9,6 @@ import { MaterialModule } from '../shared/material/material.module';
 
 //Component
 import { AyudaComponent } from './ayuda/ayuda.component';
-import { CarritoComponent } from './carrito/carrito.component';
 import { ContadorComponent } from '../shared/components/contador/contador.component';
 import { ConfeccionComponent } from './confeccion/confeccion.component';
 import { CuelloComponent } from './confeccion/components/cuello/cuello.component';
@@ -20,6 +20,8 @@ import { MangaComponent } from './confeccion/components/manga/manga.component';
 import { MostrarComponent } from './mostrar/mostrar.component';
 import { TelasComponent } from './confeccion/components/telas/telas.component';
 import { BotonComponent } from './confeccion/components/boton/boton.component';
+import { EnvioComponent } from './confeccion/peges/envio/envio.component';
+
 
 
 @NgModule({
@@ -35,11 +37,12 @@ import { BotonComponent } from './confeccion/components/boton/boton.component';
     TelasComponent,
     FoolderComponent,
     ContadorComponent,
-    CarritoComponent,
-    BotonComponent
+    BotonComponent,
+    EnvioComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     PrimengModule,
     MaterialModule,
     PegesRoutingModule
@@ -56,7 +59,6 @@ import { BotonComponent } from './confeccion/components/boton/boton.component';
     TelasComponent,
     FoolderComponent,
     ContadorComponent,
-    CarritoComponent
   ]
 })
 export class PegesModule { }

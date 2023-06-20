@@ -22,6 +22,7 @@ export class CuerpoComponent implements OnInit {
   }
 
   guardarCuerpo(cuerpo: Cuerpo) {
+    this.variables!.cuerpoSelected = cuerpo;
     this.variables?.formSeleccion.get('id_cuerpo')?.setValue(cuerpo.id_cuerpo);
   }
 }

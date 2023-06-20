@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError, tap } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
-import { User, AuthUser } from '../../peges/confeccion/interfaces/interface.interface';
+import { User, AuthUser } from '../../peges/confeccion/peges/envio/interfaces/pedido';
 
 
 

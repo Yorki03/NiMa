@@ -22,6 +22,7 @@ export class TelasComponent implements OnInit {
   }
 
   guardarTela(tela: Tela): void {
+    this.variables!.telaSelected = tela;
     this.variables?.formSeleccion.get('id_tela')?.setValue(tela.id_tela);
   }
 }

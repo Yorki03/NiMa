@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from '../../../../shared/service/productos.service';
-import { LocalService } from '../../../../shared/service/local.service';
 import { Variables } from '../../utils/variables';
 import { FunctionGetCuellos } from '../../functions/get-cuellos';
 import { Cuello } from '../../models/cuello';

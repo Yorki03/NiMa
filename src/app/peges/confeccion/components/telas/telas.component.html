@@ -1,6 +1,9 @@
 <mat-sidenav #sidenav mode="push">
   <mat-toolbar>
     <h3>Telas</h3>
+
+    <span class="speicer"></span> 
+
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>close</mat-icon>
     </button>
@@ -10,7 +13,7 @@
     <div data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
       class="scrollspy-example bg-body-tertiary p-3 rounded-2" style="cursor: pointer;" tabindex="0"
       *ngFor="let tela of variables!.telas">
-      <img [src]="tela.url" alt="tela" width="100px" height="150px" (click)="guardarTela(tela)">
+      <img [src]="tela.url" alt="tela" width="100px" height="150px" (click)="guardarTela(tela); sidenav.toggle()">
     </div>
   </mat-nav-list>
 </mat-sidenav>

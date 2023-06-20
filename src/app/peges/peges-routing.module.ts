@@ -5,8 +5,7 @@ import { HomeComponent } from './home/home.component';
 
 import { ConfeccionComponent } from './confeccion/confeccion.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
-import { CarritoComponent } from './carrito/carrito.component';
-import { AuthGuard } from '../gards/auth.guard';
+import { EnvioComponent } from './confeccion/peges/envio/envio.component';
 
 const routes: Routes = [
   {
@@ -25,17 +24,11 @@ const routes: Routes = [
 
       {
         path: 'confeccion',
-        component: ConfeccionComponent,
-        canLoad: [AuthGuard]
-        //canActivate: [AuthGuard]
+        component: ConfeccionComponent
       },
-
       {
-        path: 'carrito',
-        component: CarritoComponent,
-        canLoad: [AuthGuard]
-        //canActivate: [AuthGuard]
-
+        path: 'envio',
+        component: EnvioComponent
       }
     ]
   }

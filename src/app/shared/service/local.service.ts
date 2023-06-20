@@ -4,6 +4,8 @@ import { Observable, catchError, map } from 'rxjs';
 import { Producto } from 'src/app/peges/confeccion/models/producto';
 import { handleError } from '../functions/http-error';
 import { Filtro } from 'src/app/peges/confeccion/interfaces/filtro';
+import { Pedido } from 'src/app/peges/confeccion/peges/envio/model/pedido';
+import { Envio } from 'src/app/peges/confeccion/peges/envio/interfaces/pedido';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +25,17 @@ export class LocalService {
       catchError(handleError)
     );
   }
+
+  //Guardar el pedido del cliente
+  postPedido(pedido: Envio): Observable<Pedido[]>{
+
+    const url = 'http://localhost:3000/pedido';
+    const body = pedido ;
+
+    return this.http.post<Pedido[]>(url, body).pipe(
+      map((res) => res.map((prod) => new Pedido(prod))),
+      catchError(handleError)
+    );
+  }
+  
 }
