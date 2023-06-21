@@ -6,4 +6,5 @@ export class VariablesEnvio {
   miFormulario!: FormGroup;
   pedidos: Pedido[] = [];
   envio!: Envio;
+  idProducto!: string | null;
 }

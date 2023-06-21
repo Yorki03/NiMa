@@ -27,15 +27,13 @@ export class LocalService {
   }
 
   //Guardar el pedido del cliente
-  postPedido(pedido: Envio): Observable<Pedido[]>{
-
+  postPedido(pedido: Envio): Observable<Pedido[]> {
     const url = 'http://localhost:3000/pedido';
-    const body = pedido ;
+    const body = pedido;
 
     return this.http.post<Pedido[]>(url, body).pipe(
       map((res) => res.map((prod) => new Pedido(prod))),
       catchError(handleError)
     );
   }
-  
 }

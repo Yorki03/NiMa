@@ -39,12 +39,13 @@
 
   <div class="col-1 d-flex flex-column"></div>
 
-  <div class="col-2 d-flex flex-column">
+  <div class="col-2 d-flex flex-column" *ngIf="variables.productos.length > 0">
     <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
 
-      <img [src]="variables.botonSelected.url" class="card-img-top" alt="botonSelected"  height="150px">
+      <img [src]="variables.botonSelected.url" class="card-img-top" alt="botonSelected" height="150px">
       <div class="card-body">
-        <a href="./peges/envio" class="btn btn-primary">Go somewhere</a>
+        <a *ngIf="variables.productos[0].id_producto" [href]="'./peges/envio/' + variables.productos[0].id_producto"
+          class="btn btn-primary">Comprar</a>
       </div>
 
     </div>

@@ -4,6 +4,7 @@ import { LocalService } from 'src/app/shared/service/local.service';
 import { Envio } from './interfaces/pedido';
 import { VariablesEnvio } from './utils/variables_envio';
 import { FunctionPostPedido } from './functions/post-pedido';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-envio',
@@ -16,17 +17,20 @@ export class EnvioComponent {
 
   constructor(
     private localService: LocalService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
   ) { }
 
 
   ngOnInit() {
+    this.variables.idProducto = this.route.snapshot.paramMap.get('idProducto');
+
     this.variables.miFormulario = this.formBuilder.group({
       nombre: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
+      email: ['', [Validators.required, Validators.email]],
       telefono: ['', Validators.required],
       direccion: ['', Validators.required],
-      id_producto: ['', Validators.required]
+      id_producto: [this.variables.idProducto]
     });
   }
 

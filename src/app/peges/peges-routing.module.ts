@@ -27,7 +27,7 @@ const routes: Routes = [
         component: ConfeccionComponent
       },
       {
-        path: 'envio',
+        path: 'envio/:idProducto',
         component: EnvioComponent
       }
     ]

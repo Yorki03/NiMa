@@ -6,7 +6,7 @@ export module FunctionPostPedido {
     service: LocalService,
     variables?: VariablesEnvio,
   ) {
-    service.postPedido(variables!.envio).subscribe({
+    service.postPedido(variables!.miFormulario.value).subscribe({
       next: (pedidos) => {
         variables!.pedidos = pedidos;
       },
