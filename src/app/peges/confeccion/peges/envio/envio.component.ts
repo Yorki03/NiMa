@@ -20,7 +20,6 @@ export class EnvioComponent {
     private route: ActivatedRoute
   ) { }
 
-
   ngOnInit() {
     this.variables.idProducto = this.route.snapshot.paramMap.get('idProducto');
 
