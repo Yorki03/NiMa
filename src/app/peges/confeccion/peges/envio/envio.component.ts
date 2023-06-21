@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { LocalService } from 'src/app/shared/service/local.service';
-import { Envio } from './interfaces/pedido';
 import { VariablesEnvio } from './utils/variables_envio';
 import { FunctionPostPedido } from './functions/post-pedido';
 import { ActivatedRoute } from '@angular/router';
