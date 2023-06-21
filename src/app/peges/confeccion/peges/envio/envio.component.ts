@@ -14,31 +14,27 @@ export class EnvioComponent {
 
   variables = new VariablesEnvio;
 
-  miFormulario: FormGroup = this.formBuilder.group({
-    nombre: ['', Validators.required],
-    email: ['', Validators.required, Validators.email],
-    telefono: ['', Validators.required],
-    direccion: ['', Validators.required],
-    id_producto: ['', Validators.required]
-  });
-
   constructor(
     private localService: LocalService,
     private formBuilder: FormBuilder
   ) { }
 
-  
 
-  enviarPedido(){
-    this.variables.envio = this.miFormulario.value;
-    
-    if(!this.miFormulario.invalid){
-      FunctionPostPedido.postAll(
-        this.localService,
-        this.variables
-      );
-    }
-
+  ngOnInit() {
+    this.variables.miFormulario = this.formBuilder.group({
+      nombre: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
+      telefono: ['', Validators.required],
+      direccion: ['', Validators.required],
+      id_producto: ['', Validators.required]
+    });
   }
-  
+
+  enviarPedido() {
+    FunctionPostPedido.postAll(
+      this.localService,
+      this.variables
+    );
+  }
+
 }

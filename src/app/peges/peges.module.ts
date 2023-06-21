@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { PrimengModule } from '../shared/primeng/primeng.module';
 import { PegesRoutingModule } from './peges-routing.module';
 import { MaterialModule } from '../shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Component
 import { AyudaComponent } from './ayuda/ayuda.component';
@@ -21,8 +22,6 @@ import { MostrarComponent } from './mostrar/mostrar.component';
 import { TelasComponent } from './confeccion/components/telas/telas.component';
 import { BotonComponent } from './confeccion/components/boton/boton.component';
 import { EnvioComponent } from './confeccion/peges/envio/envio.component';
-
-
 
 @NgModule({
   declarations: [
@@ -45,7 +44,8 @@ import { EnvioComponent } from './confeccion/peges/envio/envio.component';
     FormsModule,
     PrimengModule,
     MaterialModule,
-    PegesRoutingModule
+    PegesRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     MostrarComponent,
