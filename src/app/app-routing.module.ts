@@ -9,10 +9,7 @@ import { Error404Component } from './shared/components/error404/error404.compone
 
 const routes: Routes = [
 
-  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
-  },
+
   {
     path: 'peges',
     loadChildren: () => import('./peges/peges.module').then(m => m.PegesModule),

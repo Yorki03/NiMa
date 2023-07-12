@@ -22,4 +22,5 @@ export class Producto {
   get url() {
     return "../../../assets/productos/" + this.imagen + ".jpg";
   }
+
 }

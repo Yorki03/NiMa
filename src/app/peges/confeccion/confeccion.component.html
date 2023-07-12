@@ -1,83 +1,81 @@
-<div class="row margen">
-  <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 160px;">
 
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li>
-        <app-cuello [variables]="variables"></app-cuello>
-      </li>
-      <hr>
 
-      <li>
-        <app-cuerpo [variables]="variables"></app-cuerpo>
-      </li>
-      <hr>
 
-      <li>
-        <app-manga [variables]="variables"></app-manga>
-      </li>
-      <hr>
-
-      <li>
-        <app-telas [variables]="variables"></app-telas>
-      </li>
-      <hr>
-
-      <li>
-        <app-boton [variables]="variables"></app-boton>
-      </li>
-      <hr>
-    </ul>
-  </div>
-
-  <div class="col-2 d-flex flex-column"></div>
-
-  <div class="col-3 d-flex flex-column">
-    <div class="card" style="width: 250px;" *ngFor="let producto of variables.productos">
-      <img [src]="producto.url" class="card-img-top" alt="confeccion">
-    </div>
-  </div>
-
-  <div class="col-1 d-flex flex-column"></div>
-
-  <div class="col-2 d-flex flex-column" *ngIf="variables.productos.length > 0">
-    <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
-
-      <img [src]="variables.botonSelected.url" class="card-img-top" alt="botonSelected" height="150px">
-      <div class="card-body">
-        <a *ngIf="variables.productos[0].id_producto" [href]="'./peges/envio/' + variables.productos[0].id_producto"
-          class="btn btn-primary">Comprar</a>
+<div class="row home margen">
+  <div class="container text-center bg-light">
+    <div class="row align-items-center">
+      <div class="col" *ngIf="variables.cuelloSelected">
+        <img [src]="variables.cuelloSelected.url" alt="cuello" width="100px" height="100px">
       </div>
-
+  
+      <div class="col" *ngIf="variables.cuerpoSelected">
+        <img [src]="variables.cuerpoSelected.url" alt="cuerpo" width="100px" height="100px">
+      </div>
+  
+      <div class="col" *ngIf="variables.mangaSelected">
+        <img [src]="variables.mangaSelected.url" alt="manga" width="100px" height="100px">
+      </div>
+  
+      <div class="col" *ngIf="variables.telaSelected">
+        <img [src]="variables.telaSelected.url" alt="tela" width="100px" height="100px">
+      </div>
+  
+      <div class="col" *ngIf="variables.botonSelected">
+        <img [src]="variables.botonSelected.url" alt="boton" width="100px" height="100px">
+      </div>
     </div>
   </div>
+
+  
+  <div class="row margen2 home container">
+   <ul class="nav menu nav-pills flex-column mb-auto">
+     <li>
+       <app-cuello [variables]="variables"></app-cuello>
+     </li>
+     <hr>
+  
+     <li>
+       <app-cuerpo [variables]="variables"></app-cuerpo>
+     </li>
+     <hr>
+  
+     <li>
+       <app-manga [variables]="variables"></app-manga>
+     </li>
+     <hr>
+  
+     <li>
+       <app-telas [variables]="variables"></app-telas>
+     </li>
+     <hr>
+  
+     <li>
+       <app-boton [variables]="variables"></app-boton>
+     </li>
+     <hr>
+   </ul>   
+    <div class="col-3 in-flex d-flex flex-column ">
+      <div class="card" style="width: 250px;" *ngFor="let producto of variables.productos">
+       <img [src]="producto.url" class="card-img-top" alt="confeccion">
+      </div>
+    </div>
+  
+    <div class="col-2 in-flex d-flex flex-column" *ngIf="variables.productos.length > 0">
+     <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
+       <samp *ngFor="let boton_tela of variables.botones_tela">
+         <img [src]="boton_tela.url" class="card-img-top" alt="botonSelected" height="150px">
+       </samp>
+       <div class="card-body">
+         <a *ngIf="variables.productos[0].id_producto" [href]="'./peges/envio/' + variables.productos[0].id_producto"
+           class="btn btn-primary">Lo Quiero</a>
+       </div>
+      </div>  
+    </div>
+ </div>
+    
 </div>
-
-<div class="container text-center bg-light">
-  <div class="row align-items-center">
-    <div class="col" *ngIf="variables.cuelloSelected">
-      <img [src]="variables.cuelloSelected.url" alt="cuello" width="100px" height="140px">
-    </div>
-
-    <div class="col" *ngIf="variables.cuerpoSelected">
-      <img [src]="variables.cuerpoSelected.url" alt="cuerpo" width="100px" height="140px">
-    </div>
-
-    <div class="col" *ngIf="variables.mangaSelected">
-      <img [src]="variables.mangaSelected.url" alt="manga" width="100px" height="140px">
-    </div>
-
-    <div class="col" *ngIf="variables.telaSelected">
-      <img [src]="variables.telaSelected.url" alt="tela" width="100px" height="140px">
-    </div>
-
-    <div class="col" *ngIf="variables.botonSelected">
-      <img [src]="variables.botonSelected.url" alt="boton" width="100px" height="140px">
-    </div>
-  </div>
-</div>
-
-<br>
-
 <div class="bg-light text-dark">
   <app-foolder></app-foolder>
 </div>
+
+

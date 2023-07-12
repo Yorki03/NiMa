@@ -17,35 +17,35 @@ export class ProductosService {
   constructor(private http: HttpClient) { }
 
   getCuello(): Observable<Cuello[]> {
-    return this.http.get<Cuello[]>(`http://localhost:3000/cuello`).pipe(
+    return this.http.get<Cuello[]>(`https://nima-t0xd.onrender.com/cuello`).pipe(
       map((res) => res.map((cuello) => new Cuello(cuello))),
       catchError(handleError)
     );
   };
 
   getManga(): Observable<Manga[]> {
-    return this.http.get<Manga[]>(`http://localhost:3000/manga`).pipe(
+    return this.http.get<Manga[]>(`https://nima-t0xd.onrender.com/manga`).pipe(
       map((res) => res.map((manga) => new Manga(manga))),
       catchError(handleError)
     );
   };
 
   getCuerpo(): Observable<Cuerpo[]> {
-    return this.http.get<Cuerpo[]>(`http://localhost:3000/cuerpo`).pipe(
+    return this.http.get<Cuerpo[]>(`https://nima-t0xd.onrender.com/cuerpo`).pipe(
       map((res) => res.map((cuerpo) => new Cuerpo(cuerpo))),
       catchError(handleError)
     );
   };
 
   getTelas(): Observable<Tela[]> {
-    return this.http.get<Tela[]>(`http://localhost:3000/telas`).pipe(
+    return this.http.get<Tela[]>(`https://nima-t0xd.onrender.com/telas`).pipe(
       map((res) => res.map((tela) => new Tela(tela))),
       catchError(handleError)
     );
   };
 
   getBotones(): Observable<Boton[]> {
-    return this.http.get<Boton[]>(`http://localhost:3000/botones`).pipe(
+    return this.http.get<Boton[]>(`https://nima-t0xd.onrender.com/botones`).pipe(
       map((res) => res.map((boton) => new Boton(boton))),
       catchError(handleError)
     );

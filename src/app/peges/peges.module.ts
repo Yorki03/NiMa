@@ -10,7 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 //Component
 import { AyudaComponent } from './ayuda/ayuda.component';
-import { ContadorComponent } from '../shared/components/contador/contador.component';
 import { ConfeccionComponent } from './confeccion/confeccion.component';
 import { CuelloComponent } from './confeccion/components/cuello/cuello.component';
 import { CuerpoComponent } from './confeccion/components/cuerpo/cuerpo.component';
@@ -35,7 +34,6 @@ import { EnvioComponent } from './confeccion/peges/envio/envio.component';
     MangaComponent,
     TelasComponent,
     FoolderComponent,
-    ContadorComponent,
     BotonComponent,
     EnvioComponent
   ],
@@ -58,7 +56,6 @@ import { EnvioComponent } from './confeccion/peges/envio/envio.component';
     MangaComponent,
     TelasComponent,
     FoolderComponent,
-    ContadorComponent,
   ]
 })
 export class PegesModule { }
