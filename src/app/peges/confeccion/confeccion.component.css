@@ -4,6 +4,10 @@
 .margen2{
     margin-top: 10px;
     margin-left: 10px;
+    
+}
+.margen3{
+    margin-right: 10px;
 }
 .menu{
     flex-basis: 30px;

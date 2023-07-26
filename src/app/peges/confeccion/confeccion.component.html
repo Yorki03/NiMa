@@ -53,25 +53,45 @@
        <app-boton [variables]="variables"></app-boton>
      </li>
      <hr>
-   </ul>   
+   </ul>
+
     <div class="col-3 in-flex d-flex flex-column ">
       <div class="card" style="width: 250px;" *ngFor="let producto of variables.productos">
        <img [src]="producto.url" class="card-img-top" alt="confeccion">
       </div>
     </div>
   
-    <div class="col-2 in-flex d-flex flex-column" *ngIf="variables.productos.length > 0">
+   <div class="col-1 in-flex d-flex flex-column" *ngIf="variables.productos.length > 0">
      <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
-       <samp *ngFor="let boton_tela of variables.botones_tela">
-         <img [src]="boton_tela.url" class="card-img-top" alt="botonSelected" height="150px">
-       </samp>
-       <div class="card-body">
-         <a *ngIf="variables.productos[0].id_producto" [href]="'./peges/envio/' + variables.productos[0].id_producto"
-           class="btn btn-primary">Lo Quiero</a>
-       </div>
+        <ng-container *ngIf="variables.bandera; else elseTemplate">
+          <p>Este modelo que creo no lleva botones.</p>
+        </ng-container>
+    
+        <ng-template #elseTemplate>
+          <samp *ngFor="let boton_tela of variables.botones_tela">
+            <img [src]="boton_tela.url" class="card-img-top" alt="botonSelected" height="200px">
+          </samp>
+        </ng-template>
+    
+        <div class="card-body">
+          <a *ngIf="variables.productos[0].id_producto" [href]="'./peges/envio/' + variables.productos[0].id_producto"
+             class="btn btn-primary">Lo Quiero</a>
+        </div>
       </div>  
     </div>
- </div>
+
+    <div class="card margen3" style="width: 18rem;">
+      <img src="../../../assets/web/pocas.jpg" class="card-img-top" alt="pocas">
+      <div class="card-body">
+        <h2 class="card-title text-black">Hechizo de Moda...</h2>
+        <p>Déjate sorprender por nuestras prendas confeccionadas a mano, resaltando tu estilo personal.
+          Experimenta la fusión perfecta entre moda y comodidad, en nuestras blusas diseñadas especialmente para ti y 
+          descubre las últimas tendencias en diseño de blusas y destaca con nuestras creaciones exclusivas.
+        </p>
+      </div>
+    </div>
+
+  </div>
     
 </div>
 <div class="bg-light text-dark">

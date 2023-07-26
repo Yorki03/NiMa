@@ -19,7 +19,6 @@ export class TelasComponent implements OnInit {
       this.productoService,
       this.variables
     );
-    console.log(this.variables?.telas);
      
   }
 

@@ -28,4 +28,6 @@ export class Variables {
   mangaSelected?: Manga;
   telaSelected?: Tela;
   botonSelected?: Boton;
+
+  bandera?: boolean;
 }

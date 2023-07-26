@@ -5,7 +5,7 @@ import { Producto } from 'src/app/peges/confeccion/models/producto';
 import { handleError } from '../functions/http-error';
 import { BotonTelaSelec, Filtro } from 'src/app/peges/confeccion/interfaces/filtro';
 import { Pedido } from 'src/app/peges/confeccion/peges/envio/model/pedido';
-import { Envio } from 'src/app/peges/confeccion/peges/envio/interfaces/pedido';
+import { Envio } from 'src/app/peges/confeccion/peges/envio/interfaces/interface';
 import { BotonYTela } from 'src/app/peges/confeccion/models/botones_tela';
 
 @Injectable({
@@ -46,4 +46,5 @@ export class LocalService {
       catchError(handleError)
     );
   }
+
 }

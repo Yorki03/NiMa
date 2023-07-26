@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { LocalService } from '../../shared/service/local.service';
 import { Variables } from './utils/variables';
-import { FormBuilder, Validators } from '@angular/forms';
 import { FunctionGetProducto } from './functions/get-producto';
 import { FunctionGetBotonTela } from './functions/get-botones_tela';
 
@@ -39,12 +39,24 @@ export class ConfeccionComponent implements OnInit {
           this.localService,
           this.variables
         );
-        
-        //Busco los botones y las telas que coinciden con la seleccion
-        FunctionGetBotonTela.getAll(
-          this.localService,
-          this.variables
-        );
+
+        if (this.variables.filtro.id_cuello == '3' || this.variables.filtro.id_cuello == '4'|| 
+            this.variables.filtro.id_cuello == '5'){
+
+          if (this.variables.filtro.id_cuerpo == '1'|| this.variables.filtro.id_cuerpo == '3'|| 
+              this.variables.filtro.id_cuerpo == '5'){
+                
+            this.variables.bandera = true;
+          }          
+        } 
+        else {
+          
+          //Busco los botones y las telas que coinciden con la seleccion
+          FunctionGetBotonTela.getAll(
+            this.localService,
+            this.variables
+          );
+        }
         
       }
     });

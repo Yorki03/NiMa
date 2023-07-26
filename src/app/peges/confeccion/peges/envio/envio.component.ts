@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { LocalService } from 'src/app/shared/service/local.service';
 import { VariablesEnvio } from './utils/variables_envio';
 import { FunctionPostPedido } from './functions/post-pedido';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-envio',
@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EnvioComponent {
 
   variables = new VariablesEnvio;
+
 
   constructor(
     private localService: LocalService,
@@ -30,6 +31,7 @@ export class EnvioComponent {
       direccion: ['', Validators.required],
       id_producto: [this.variables.idProducto]
     });
+
   }
 
   enviarPedido() {
@@ -38,5 +40,7 @@ export class EnvioComponent {
       this.variables
     );
   }
+  
+
 
 }
