@@ -8,4 +8,6 @@ export class VariablesEnvio {
   pedidos: Pedido[] = [];
   envio!: Envio;
   idProducto!: string | null;
+
+  precio: string = "";
 }

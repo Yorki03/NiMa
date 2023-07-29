@@ -2,7 +2,8 @@
 
   <main class="margen">
     <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="../../../../../assets/logo/logo7_6_194733.png" alt="" width="100px" height="100px">
+      <img class="d-block mx-auto mb-4" src="../../../../../assets/logo/logo7_6_194733.png" alt="" width="100px"
+        height="100px">
       <h2>ALERTA</h2>
       <p class="lead">
         Estaremos operativos en breve y este verano solo se confecionarán 50 blusas. Para asegurar que se dé vida
@@ -13,24 +14,24 @@
 
     <div class="row g-5">
       <div class="col-md-5 col-lg-4 order-md-last">
-        
+
         <ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Product name</h6>
-              <small class="text-body-secondary" >
-                aqui va el precio
+              <small class="text-body-secondary">
+                {{variables.precio}}
               </small>
             </div>
-            <span class="text-body-secondary" >
-              
+            <span class="text-body-secondary">
+
             </span>
           </li>
-          
+
         </ul>
       </div>
 
-      <div class="col-md-7 col-lg-8">
+      <div class="col-md-7 col-lg-8" style="padding: 50px;">
 
         <form class="needs-validation" autocomplete="off" [formGroup]="variables.miFormulario"
           (ngSubmit)="enviarPedido()">

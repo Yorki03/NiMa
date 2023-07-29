@@ -8,7 +8,7 @@ export module FunctionGetBotonTela {
   ) {
     service.getBotonTela(variables!.filtroBotontela).subscribe({
       next: (botones_tela) => {
-        variables!.botones_tela = botones_tela;        
+        variables!.botones_tela = botones_tela;
       },
       error: (error) => {
         console.log(error);

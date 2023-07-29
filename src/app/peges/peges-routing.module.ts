@@ -27,7 +27,7 @@ const routes: Routes = [
         component: ConfeccionComponent
       },
       {
-        path: 'envio/:idProducto',
+        path: 'envio/:idProducto/:idBoton/:idTela',
         component: EnvioComponent
       }
     ]

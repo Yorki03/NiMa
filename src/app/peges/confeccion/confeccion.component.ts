@@ -31,7 +31,7 @@ export class ConfeccionComponent implements OnInit {
     this.variables.formSeleccion.valueChanges.subscribe(values => {
       this.variables.filtro = values;
       this.variables.filtroBotontela = values;
-      
+
       // Solo llamo a la api a buscar el producto si el formulario es válido
       if (!this.variables.formSeleccion.invalid) {
         // Busco el producto que coincide con la selección
@@ -40,24 +40,21 @@ export class ConfeccionComponent implements OnInit {
           this.variables
         );
 
-        if (this.variables.filtro.id_cuello == '3' || this.variables.filtro.id_cuello == '4'|| 
-            this.variables.filtro.id_cuello == '5'){
-
-          if (this.variables.filtro.id_cuerpo == '1'|| this.variables.filtro.id_cuerpo == '3'|| 
-              this.variables.filtro.id_cuerpo == '5'){
-                
+        if (this.variables.filtro.id_cuello == '3' || this.variables.filtro.id_cuello == '4' ||
+          this.variables.filtro.id_cuello == '5') {
+          if (this.variables.filtro.id_cuerpo == '1' || this.variables.filtro.id_cuerpo == '3' ||
+            this.variables.filtro.id_cuerpo == '5') {
             this.variables.bandera = true;
-          }          
-        } 
+          }
+        }
         else {
-          
           //Busco los botones y las telas que coinciden con la seleccion
           FunctionGetBotonTela.getAll(
             this.localService,
             this.variables
           );
         }
-        
+
       }
     });
 

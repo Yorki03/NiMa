@@ -9,7 +9,7 @@ import { Tela } from 'src/app/peges/confeccion/models/tela';
 import { Boton } from 'src/app/peges/confeccion/models/boton';
 import { environment } from 'src/environments/environment';
 
-const baseUrl = `${environment.apiUrl}/costo-envio`;
+const baseUrl = `${environment.apiUrl}`;
 
 @Injectable({
   providedIn: 'root'

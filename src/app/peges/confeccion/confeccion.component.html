@@ -1,83 +1,81 @@
-
-
-
 <div class="row home margen">
   <div class="container text-center bg-light">
     <div class="row align-items-center">
       <div class="col" *ngIf="variables.cuelloSelected">
         <img [src]="variables.cuelloSelected.url" alt="cuello" width="100px" height="100px">
       </div>
-  
+
       <div class="col" *ngIf="variables.cuerpoSelected">
         <img [src]="variables.cuerpoSelected.url" alt="cuerpo" width="100px" height="100px">
       </div>
-  
+
       <div class="col" *ngIf="variables.mangaSelected">
         <img [src]="variables.mangaSelected.url" alt="manga" width="100px" height="100px">
       </div>
-  
+
       <div class="col" *ngIf="variables.telaSelected">
         <img [src]="variables.telaSelected.url" alt="tela" width="100px" height="100px">
       </div>
-  
+
       <div class="col" *ngIf="variables.botonSelected">
         <img [src]="variables.botonSelected.url" alt="boton" width="100px" height="100px">
       </div>
     </div>
   </div>
 
-  
+
   <div class="row margen2 home container">
-   <ul class="nav menu nav-pills flex-column mb-auto">
-     <li>
-       <app-cuello [variables]="variables"></app-cuello>
-     </li>
-     <hr>
-  
-     <li>
-       <app-cuerpo [variables]="variables"></app-cuerpo>
-     </li>
-     <hr>
-  
-     <li>
-       <app-manga [variables]="variables"></app-manga>
-     </li>
-     <hr>
-  
-     <li>
-       <app-telas [variables]="variables"></app-telas>
-     </li>
-     <hr>
-  
-     <li>
-       <app-boton [variables]="variables"></app-boton>
-     </li>
-     <hr>
-   </ul>
+    <ul class="nav menu nav-pills flex-column mb-auto">
+      <li>
+        <app-cuello [variables]="variables"></app-cuello>
+      </li>
+      <hr>
+
+      <li>
+        <app-cuerpo [variables]="variables"></app-cuerpo>
+      </li>
+      <hr>
+
+      <li>
+        <app-manga [variables]="variables"></app-manga>
+      </li>
+      <hr>
+
+      <li>
+        <app-telas [variables]="variables"></app-telas>
+      </li>
+      <hr>
+
+      <li>
+        <app-boton [variables]="variables"></app-boton>
+      </li>
+      <hr>
+    </ul>
 
     <div class="col-3 in-flex d-flex flex-column ">
       <div class="card" style="width: 250px;" *ngFor="let producto of variables.productos">
-       <img [src]="producto.url" class="card-img-top" alt="confeccion">
+        <img [src]="producto.url" class="card-img-top" alt="confeccion">
       </div>
     </div>
-  
-   <div class="col-1 in-flex d-flex flex-column" *ngIf="variables.productos.length > 0">
-     <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
+
+    <div class="col-1 in-flex d-flex flex-column" *ngIf="variables.productos.length > 0">
+      <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
         <ng-container *ngIf="variables.bandera; else elseTemplate">
           <p>Este modelo que creo no lleva botones.</p>
         </ng-container>
-    
+
         <ng-template #elseTemplate>
           <samp *ngFor="let boton_tela of variables.botones_tela">
             <img [src]="boton_tela.url" class="card-img-top" alt="botonSelected" height="200px">
           </samp>
         </ng-template>
-    
-        <div class="card-body">
-          <a *ngIf="variables.productos[0].id_producto" [href]="'./peges/envio/' + variables.productos[0].id_producto"
-             class="btn btn-primary">Lo Quiero</a>
+
+        <div style="padding: 0;">
+          <a *ngIf="variables.productos[0].id_producto"
+            [href]="'./peges/envio/' + variables.productos[0].id_producto + '/' + variables.filtro.id_boton + '/' + variables.filtro.id_tela"
+            class="btn btn-primary">Lo Quiero</a>
         </div>
-      </div>  
+      </div>
     </div>
 
     <div class="card margen3" style="width: 18rem;">
@@ -85,17 +83,14 @@
       <div class="card-body">
         <h2 class="card-title text-black">Hechizo de Moda...</h2>
         <p>Déjate sorprender por nuestras prendas confeccionadas a mano, resaltando tu estilo personal.
-          Experimenta la fusión perfecta entre moda y comodidad, en nuestras blusas diseñadas especialmente para ti y 
+          Experimenta la fusión perfecta entre moda y comodidad, en nuestras blusas diseñadas especialmente para ti y
           descubre las últimas tendencias en diseño de blusas y destaca con nuestras creaciones exclusivas.
         </p>
       </div>
     </div>
-
   </div>
-    
 </div>
+
 <div class="bg-light text-dark">
   <app-foolder></app-foolder>
 </div>
-
-
