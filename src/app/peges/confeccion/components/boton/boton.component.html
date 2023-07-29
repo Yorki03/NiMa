@@ -2,7 +2,7 @@
   <mat-toolbar>
     <h3>Botones</h3>
 
-    <span class="speicer"></span> 
+    <span class="speicer"></span>
 
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>close</mat-icon>
@@ -19,6 +19,7 @@
   </mat-nav-list>
 </mat-sidenav>
 
-<button mat-raised-button color="primary" (click)="sidenav.toggle()" style="margin-bottom: 5px">
+<button [disabled]="desactivaBoton" mat-raised-button color="primary" (click)="sidenav.toggle()"
+  style="margin-bottom: 5px">
   Botones <mat-icon>arrow_forward_los</mat-icon>
 </button>

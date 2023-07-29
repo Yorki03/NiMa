@@ -11,6 +11,7 @@ import { FunctionGetBotones } from '../../functions/get-botones';
 export class BotonComponent implements OnInit {
 
   @Input() variables?: Variables;
+  @Input() desactivaBoton?: boolean;
 
   constructor(private productosService: ProductosService) { }
 

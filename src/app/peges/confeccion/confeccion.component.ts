@@ -21,7 +21,7 @@ export class ConfeccionComponent implements OnInit {
 
   ngOnInit(): void {
     this.variables.formSeleccion = this.formBuilder.group({
-      id_boton: ['', Validators.required],
+      id_boton: [''],
       id_tela: ['', Validators.required],
       id_cuerpo: ['', Validators.required],
       id_cuello: ['', Validators.required],
@@ -32,29 +32,31 @@ export class ConfeccionComponent implements OnInit {
       this.variables.filtro = values;
       this.variables.filtroBotontela = values;
 
+      if ((this.variables.filtro.id_cuello == '3' || this.variables.filtro.id_cuello == '4' ||
+        this.variables.filtro.id_cuello == '5') && (this.variables.filtro.id_cuerpo == '1' || this.variables.filtro.id_cuerpo == '3' ||
+          this.variables.filtro.id_cuerpo == '5')) {
+        this.variables.bandera = true;
+      } else {
+        this.variables.bandera = false;
+      }
+
       // Solo llamo a la api a buscar el producto si el formulario es válido
       if (!this.variables.formSeleccion.invalid) {
+        console.log("aqui");
+
         // Busco el producto que coincide con la selección
         FunctionGetProducto.getAll(
           this.localService,
           this.variables
         );
 
-        if (this.variables.filtro.id_cuello == '3' || this.variables.filtro.id_cuello == '4' ||
-          this.variables.filtro.id_cuello == '5') {
-          if (this.variables.filtro.id_cuerpo == '1' || this.variables.filtro.id_cuerpo == '3' ||
-            this.variables.filtro.id_cuerpo == '5') {
-            this.variables.bandera = true;
-          }
-        }
-        else {
+        if (!this.variables.bandera) {
           //Busco los botones y las telas que coinciden con la seleccion
           FunctionGetBotonTela.getAll(
             this.localService,
             this.variables
           );
         }
-
       }
     });
 

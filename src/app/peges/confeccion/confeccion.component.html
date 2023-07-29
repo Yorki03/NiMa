@@ -47,7 +47,7 @@
       <hr>
 
       <li>
-        <app-boton [variables]="variables"></app-boton>
+        <app-boton [variables]="variables" [desactivaBoton]="variables.bandera"></app-boton>
       </li>
       <hr>
     </ul>
@@ -61,7 +61,7 @@
     <div class="col-1 in-flex d-flex flex-column" *ngIf="variables.productos.length > 0">
       <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
         <ng-container *ngIf="variables.bandera; else elseTemplate">
-          <p>Este modelo que creo no lleva botones.</p>
+          <p>El modelo seleccionado no lleva botones.</p>
         </ng-container>
 
         <ng-template #elseTemplate>
