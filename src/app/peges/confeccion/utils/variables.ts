@@ -7,9 +7,6 @@ import { Cuerpo } from "../models/cuerpo";
 import { Tela } from "../models/tela";
 import { Boton } from "../models/boton";
 import { BotonYTela } from "../models/botones_tela";
-
-
-
 export class Variables {
   formSeleccion!: FormGroup;
   filtro!: Filtro;
@@ -21,7 +18,6 @@ export class Variables {
   cuerpos: Cuerpo[] = [];
   telas: Tela[] = [];
   botones: Boton[] = [];
-  
 
   cuelloSelected?: Cuello;
   cuerpoSelected?: Cuerpo;

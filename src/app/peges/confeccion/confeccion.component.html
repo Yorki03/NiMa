@@ -27,53 +27,53 @@
   <div class="row margen2 home container">
     <ul class="nav menu nav-pills flex-column mb-auto">
       <li>
-        <app-cuello [variables]="variables"></app-cuello>
+        <app-cuello [variables]="variables" (validateBoton)="validarFormulario()"></app-cuello>
       </li>
       <hr>
 
       <li>
-        <app-cuerpo [variables]="variables"></app-cuerpo>
+        <app-cuerpo [variables]="variables" (validateBoton)="validarFormulario()"></app-cuerpo>
       </li>
       <hr>
 
       <li>
-        <app-manga [variables]="variables"></app-manga>
+        <app-manga [variables]="variables" (validateBoton)="validarFormulario()"></app-manga>
       </li>
       <hr>
 
       <li>
-        <app-telas [variables]="variables"></app-telas>
+        <app-telas [variables]="variables" (validateBoton)="validarFormulario()"></app-telas>
       </li>
       <hr>
 
       <li>
-        <app-boton [variables]="variables" [desactivaBoton]="variables.bandera"></app-boton>
+        <app-boton [variables]="variables" [desactivaBoton]="variables.bandera" (validateBoton)="validarFormulario()">
+        </app-boton>
       </li>
       <hr>
     </ul>
 
-    <div class="col-3 in-flex d-flex flex-column ">
-      <div class="card" style="width: 250px;" *ngFor="let producto of variables.productos">
-        <img [src]="producto.url" class="card-img-top" alt="confeccion">
+    <div class="col-1 in-flex d-flex flex-column" *ngIf="variables.productos.length > 0">
+      <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
+        <samp *ngFor="let boton_tela of variables.botones_tela">
+          <img [src]="boton_tela.url" class="card-img-top" alt="botonSelected" height="200px">
+        </samp>
+      </div>
+      <div class="card" style="width: 200px;" *ngIf="!variables.botonSelected && variables.bandera">
+        <p>El modelo seleccionado no lleva botones.</p>
+      </div>
+      <div class="card" style="width: 200px;" *ngIf="!variables.botonSelected && !variables.bandera">
+        <p>Seleccione el modelo de botón.</p>
       </div>
     </div>
 
-    <div class="col-1 in-flex d-flex flex-column" *ngIf="variables.productos.length > 0">
-      <div class="card" style="width: 200px;" *ngIf="variables.botonSelected">
-        <ng-container *ngIf="variables.bandera; else elseTemplate">
-          <p>El modelo seleccionado no lleva botones.</p>
-        </ng-container>
-
-        <ng-template #elseTemplate>
-          <samp *ngFor="let boton_tela of variables.botones_tela">
-            <img [src]="boton_tela.url" class="card-img-top" alt="botonSelected" height="200px">
-          </samp>
-        </ng-template>
-
+    <div class="col-3 in-flex d-flex flex-column">
+      <div class="card" style="width: 250px;" *ngIf="variables.productos.length > 0">
+        <img [src]="variables.productos[0].url" class="card-img-top" alt="confeccion">
         <div style="padding: 0;">
           <a *ngIf="variables.productos[0].id_producto"
             [href]="'./peges/envio/' + variables.productos[0].id_producto + '/' + variables.filtro.id_boton + '/' + variables.filtro.id_tela"
-            class="btn btn-primary">Lo Quiero</a>
+            class="btn btn-primary" style="width: 100%;">Lo Quiero</a>
         </div>
       </div>
     </div>

@@ -20,12 +20,19 @@ export class LocalService {
 
   // Buscar el producto que coincida con los filtros
   getConfeccion(filtro: Filtro): Observable<Producto[]> {
-
-    // Orden de los parametros => :id_boton/:id_tela/:id_cuerpo/:id_cuello/:id_manga
-    return this.http.get<Producto[]>(`${baseUrl}/producto/${filtro.id_boton}/${filtro.id_tela}/${filtro.id_cuerpo}/${filtro.id_cuello}/${filtro.id_manga}`).pipe(
-      map((res) => res.map((prod) => new Producto(prod))),
-      catchError(handleError)
-    );
+    if (filtro.id_boton) {
+      // Orden de los parametros => :id_boton/:id_tela/:id_cuerpo/:id_cuello/:id_manga
+      return this.http.get<Producto[]>(`${baseUrl}/producto/${filtro.id_boton}/${filtro.id_tela}/${filtro.id_cuerpo}/${filtro.id_cuello}/${filtro.id_manga}`).pipe(
+        map((res) => res.map((prod) => new Producto(prod))),
+        catchError(handleError)
+      );
+    } else {
+      // Orden de los parametros => :id_tela/:id_cuerpo/:id_cuello/:id_manga
+      return this.http.get<Producto[]>(`${baseUrl}/producto-sin-boton/${filtro.id_tela}/${filtro.id_cuerpo}/${filtro.id_cuello}/${filtro.id_manga}`).pipe(
+        map((res) => res.map((prod) => new Producto(prod))),
+        catchError(handleError)
+      );
+    }
   }
 
   // Buscar el producto que coincida con los filtros de los botone y las telas

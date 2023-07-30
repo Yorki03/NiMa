@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductosService } from '../../../../shared/service/productos.service';
 import { Variables } from '../../utils/variables';
 import { FunctionGetCuellos } from '../../functions/get-cuellos';
 import { Cuello } from '../../models/cuello';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cuello',
@@ -12,6 +13,7 @@ import { Cuello } from '../../models/cuello';
 export class CuelloComponent implements OnInit {
 
   @Input() variables?: Variables;
+  @Output() validateBoton = new EventEmitter<any>();
 
   constructor(
     private productosService: ProductosService
@@ -27,6 +29,11 @@ export class CuelloComponent implements OnInit {
   guardarCuello(cuello: Cuello) {
     this.variables!.cuelloSelected = cuello;
     this.variables?.formSeleccion.get('id_cuello')?.setValue(cuello.id_cuello);
+    this.validateBoton.emit();
+  }
+
+  get selected() {
+    return (this.variables?.formSeleccion.get('id_cuello')?.value) ? true : false;
   }
 
 }

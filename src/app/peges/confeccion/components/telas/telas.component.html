@@ -2,7 +2,7 @@
   <mat-toolbar>
     <h3>Telas</h3>
 
-    <span class="speicer"></span> 
+    <span class="speicer"></span>
 
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>close</mat-icon>
@@ -11,13 +11,15 @@
 
   <mat-nav-list>
     <div data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
-      class="scrollspy-example bg-body-tertiary p-3 rounded-2" style="cursor: pointer;" tabindex="0"
+      class="scrollspy-example bg-body-tertiary p-3 rounded-2" style="cursor: pointer; margin-bottom: 5px;" tabindex="0"
       *ngFor="let tela of variables!.telas">
       <img [src]="tela.url" alt="tela" width="100px" height="150px" (click)="guardarTela(tela); sidenav.toggle()">
     </div>
   </mat-nav-list>
 </mat-sidenav>
 
-<button mat-raised-button color="primary" (click)="sidenav.toggle()" style="margin-bottom: 5px">
-  Telas <mat-icon>arrow_forward_los</mat-icon>
+<button mat-raised-button color="primary" (click)="sidenav.toggle()" style="width: 100%; margin-bottom: 5px;">
+  <mat-icon *ngIf="!selected">arrow_forward_los</mat-icon>
+  <mat-icon *ngIf="selected">check_circle_outline</mat-icon>
+  Telas
 </button>

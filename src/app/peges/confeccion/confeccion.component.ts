@@ -21,7 +21,7 @@ export class ConfeccionComponent implements OnInit {
 
   ngOnInit(): void {
     this.variables.formSeleccion = this.formBuilder.group({
-      id_boton: [''],
+      id_boton: ['', Validators.required],
       id_tela: ['', Validators.required],
       id_cuerpo: ['', Validators.required],
       id_cuello: ['', Validators.required],
@@ -31,34 +31,45 @@ export class ConfeccionComponent implements OnInit {
     this.variables.formSeleccion.valueChanges.subscribe(values => {
       this.variables.filtro = values;
       this.variables.filtroBotontela = values;
+    });
+  }
 
-      if ((this.variables.filtro.id_cuello == '3' || this.variables.filtro.id_cuello == '4' ||
-        this.variables.filtro.id_cuello == '5') && (this.variables.filtro.id_cuerpo == '1' || this.variables.filtro.id_cuerpo == '3' ||
-          this.variables.filtro.id_cuerpo == '5')) {
-        this.variables.bandera = true;
-      } else {
-        this.variables.bandera = false;
+  validarFormulario() {
+    const id_cuello = this.variables.formSeleccion.get('id_cuello')?.value;
+    const id_cuerpo = this.variables.formSeleccion.get('id_cuerpo')?.value;
+
+    if ((id_cuello == '3' || id_cuello == '4' || id_cuello == '5') && (id_cuerpo == '1' || id_cuerpo == '3' || id_cuerpo == '5')) {
+      this.variables.bandera = true;
+      this.variables.formSeleccion.get('id_boton')?.clearValidators();
+      this.variables.formSeleccion.get('id_boton')?.updateValueAndValidity();
+      this.variables.botonSelected = undefined;
+    } else {
+      this.variables.bandera = false;
+      this.variables.formSeleccion.get('id_boton')?.setValidators([Validators.required]);
+      this.variables.formSeleccion.get('id_boton')?.updateValueAndValidity();
+
+      if (this.variables.productos.length > 0) {
+        this.variables.productos = [...[]];
       }
+    }
 
-      // Solo llamo a la api a buscar el producto si el formulario es válido
-      if (!this.variables.formSeleccion.invalid) {
-        console.log("aqui");
+    // Solo llamo a la api a buscar el producto si el formulario es válido
+    if (this.variables.formSeleccion.valid) {
+      console.log("buscando...");
 
-        // Busco el producto que coincide con la selección
-        FunctionGetProducto.getAll(
+      // Busco el producto que coincide con la selección
+      FunctionGetProducto.getAll(
+        this.localService,
+        this.variables
+      );
+
+      if (!this.variables.bandera) {
+        //Busco los botones y las telas que coinciden con la seleccion
+        FunctionGetBotonTela.getAll(
           this.localService,
           this.variables
         );
-
-        if (!this.variables.bandera) {
-          //Busco los botones y las telas que coinciden con la seleccion
-          FunctionGetBotonTela.getAll(
-            this.localService,
-            this.variables
-          );
-        }
       }
-    });
-
+    }
   }
 }

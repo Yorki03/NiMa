@@ -20,6 +20,8 @@
 
 </mat-sidenav>
 
-<button mat-raised-button color="primary" (click)="sidenav.toggle()" style="margin-bottom: 5px">
-  Cuellos <mat-icon>arrow_forward_los</mat-icon>
+<button mat-raised-button color="primary" (click)="sidenav.toggle()" style="width: 100%; margin-bottom: 5px;">
+  Cuellos
+  <mat-icon *ngIf="!selected">arrow_forward_los</mat-icon>
+  <mat-icon *ngIf="selected">check_circle_outline</mat-icon>
 </button>

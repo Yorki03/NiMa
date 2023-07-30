@@ -11,7 +11,7 @@
 
   <mat-nav-list>
     <div data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
-      class="scrollspy-example bg-body-tertiary p-3 rounded-2" style="cursor: pointer;" tabindex="0"
+      class="scrollspy-example bg-body-tertiary p-3 rounded-2" style="cursor: pointer; margin-bottom: 5px;" tabindex="0"
       *ngFor="let boton of variables!.botones">
       <img [src]="boton.url" alt="boton" width="100px" height="140px" (click)="guardarBoton(boton); sidenav.toggle()">
     </div>
@@ -20,6 +20,8 @@
 </mat-sidenav>
 
 <button [disabled]="desactivaBoton" mat-raised-button color="primary" (click)="sidenav.toggle()"
-  style="margin-bottom: 5px">
-  Botones <mat-icon>arrow_forward_los</mat-icon>
+  style="width: 100%; margin-bottom: 5px;">
+  Botones
+  <mat-icon *ngIf="!selected">arrow_forward_los</mat-icon>
+  <mat-icon *ngIf="selected">check_circle_outline</mat-icon>
 </button>

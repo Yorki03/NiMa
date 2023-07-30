@@ -2,7 +2,7 @@
   <mat-toolbar>
     <h3>Cuerpos</h3>
 
-    <span class="speicer"></span> 
+    <span class="speicer"></span>
 
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>close</mat-icon>
@@ -11,14 +11,17 @@
 
   <mat-nav-list>
     <div data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
-      class="scrollspy-example bg-body-tertiary p-3 rounded-2" style="cursor: pointer;" tabindex="0"
+      class="scrollspy-example bg-body-tertiary p-3 rounded-2" style="cursor: pointer; margin-bottom: 5px;" tabindex="0"
       *ngFor="let cuerpo of variables!.cuerpos">
-      <img [src]="cuerpo.url" alt="cuerpo" width="100px" height="140px" (click)="guardarCuerpo(cuerpo); sidenav.toggle()">
+      <img [src]="cuerpo.url" alt="cuerpo" width="100px" height="140px"
+        (click)="guardarCuerpo(cuerpo); sidenav.toggle()">
     </div>
 
   </mat-nav-list>
 </mat-sidenav>
 
-<button mat-raised-button color="primary" (click)="sidenav.toggle()" style="margin-bottom: 5px">
-  Cuerpos <mat-icon>arrow_forward_los</mat-icon>
+<button mat-raised-button color="primary" (click)="sidenav.toggle()" style="width: 100%; margin-bottom: 5px;">
+  Cuerpos
+  <mat-icon *ngIf="!selected">arrow_forward_los</mat-icon>
+  <mat-icon *ngIf="selected">check_circle_outline</mat-icon>
 </button>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductosService } from '../../../../shared/service/productos.service';
 import { Variables } from '../../utils/variables';
 import { Boton } from '../../models/boton';
@@ -12,6 +12,7 @@ export class BotonComponent implements OnInit {
 
   @Input() variables?: Variables;
   @Input() desactivaBoton?: boolean;
+  @Output() validateBoton = new EventEmitter<any>();
 
   constructor(private productosService: ProductosService) { }
 
@@ -25,5 +26,10 @@ export class BotonComponent implements OnInit {
   guardarBoton(boton: Boton) {
     this.variables!.botonSelected = boton;
     this.variables?.formSeleccion.get('id_boton')?.setValue(boton.id_boton);
+    this.validateBoton.emit();
+  }
+
+  get selected() {
+    return (this.variables?.formSeleccion.get('id_boton')?.value) ? true : false;
   }
 }
