@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ConfeccionComponent } from './confeccion/confeccion.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { EnvioComponent } from './confeccion/peges/envio/envio.component';
+import { RealizadoComponent } from './realizado/realizado.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'envio/:idProducto/:idBoton/:idTela',
         component: EnvioComponent
+      },
+      {
+        path: 'realizado',
+        component: RealizadoComponent
       }
     ]
   }

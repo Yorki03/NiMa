@@ -21,6 +21,7 @@ import { MostrarComponent } from './mostrar/mostrar.component';
 import { TelasComponent } from './confeccion/components/telas/telas.component';
 import { BotonComponent } from './confeccion/components/boton/boton.component';
 import { EnvioComponent } from './confeccion/peges/envio/envio.component';
+import { RealizadoComponent } from './realizado/realizado.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EnvioComponent } from './confeccion/peges/envio/envio.component';
     TelasComponent,
     FoolderComponent,
     BotonComponent,
-    EnvioComponent
+    EnvioComponent,
+    RealizadoComponent
   ],
   imports: [
     CommonModule,

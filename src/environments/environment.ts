@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000',
+  apiUrl: 'https://nima-t0xd.onrender.com',
+  //apiUrl: 'http://localhost:3000',
 };
