@@ -6,7 +6,7 @@
         height="100px">
       <h2>ALERTA</h2>
       <p class="lead">
-        Estaremos operativos en breve y este verano solo se confecionarán 50 blusas. Para asegurar que se dé vida
+        Para asegurar que se dé vida
         a tu diseño prodrás hacer una reserva con valor de 20 euros, los cuales ya estarán incluidos en el precio
         final de tu prenda.
       </p>
@@ -79,9 +79,10 @@
           <div class="container-login100-form-btn">
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
-              <button class="login100-form-btn" type="submit" routerLink="/realizado" [disabled]="variables.miFormulario.invalid">
-                Enviar
-              </button>
+              
+                <button class="login100-form-btn" type="submit" [disabled]="variables.miFormulario.invalid">
+                  <a href="/realizado" style="color: white;">Enviar</a>
+                </button>              
             </div>
           </div>
         </form>
